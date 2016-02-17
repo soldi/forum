@@ -1,0 +1,86 @@
+<div>
+    <h2><span>Detalhes do tópico</h2>
+    
+    <div class="modal-body form-group">
+	    <p>
+	       <label>Título</label>
+	       <input type="text" class="input-sm form-control" value="{{ topic.title }}" readonly>
+	    </p>
+	    <p>
+	       <label>Autor</label>
+	       <input type="text" class="input-sm form-control" value="{{ topic.userName }}" readonly>
+	    </p>
+	    <p>
+	    	<label>Criado em</label>
+        	<input type="text" class="input-sm form-control" value="{{ topic.registration }} via {{ topic.source }}" readonly>
+        </p>
+        <p>
+        	<label>Mensagem</label>
+        	<textarea class="input-sm form-control" ng-model="topic.content" rows="5" readonly width="*"></textarea>
+        </p> 
+    
+     	<button type="submit" ui-sref="topic" class="btn btn-primary">
+	        <span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;<span> Voltar</span>
+	    </button>&nbsp;
+	    
+	    <button class="btn btn-primary" data-toggle="modal" data-target="#saveTopicModal" ng-click="clear({{ topic.id }})">
+	        <span class="glyphicon glyphicon-plus-sign"></span>
+	        <span> Responder</span>
+	    </button>
+	    
+	    <div class="modal fade" id="saveTopicModal" tabindex="-1" role="dialog" aria-labelledby="topicLabel" aria-hidden="true">
+			<div class="modal-dialog modal-content">
+				<form name="editForm" role="form" ng-submit="createReply()">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="clear()">&times;</button>
+			            <h4 class="modal-title" id="topicLabel">Responder o tópico</h4>
+			        </div>
+		
+					<div class="modal-body form-group">
+						<p>
+							<label>Autor da resposta *</label> 
+							<input type="text" class="form-control" name="reply.userName" ng-model="reply.userName" required>
+						</p>
+						<p>
+							<label>Mensagem *</label>
+							<textarea class="form-control" name="reply.content" ng-model="reply.content" rows="5" width="*" required></textarea>
+						</p>
+					</div>
+		
+					<div class="modal-footer">
+			             <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary">
+			                 <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Salvar</span>
+			             </button>
+		            </div>
+				</form>
+			</div>
+		</div>
+    </div>
+    
+    <h4>Respostas</h4>
+    <div class="modal-body form-group">
+	    <div class="table-responsive">
+	        <table class="table table-striped">
+	            <thead>
+	                <tr>
+	                    <th>Autor</th>
+	                    <th>Mensagem</th>
+	                    <th>Criado em</th>
+	                    <th></th>
+	                </tr>
+	            </thead>
+	            <tbody>
+	                <tr ng-repeat="reply in topic.replies">
+	                    <td>{{ reply.userName }}</td>
+	                    <td>{{ reply.content }}</td>
+	                    <td>{{ reply.registration }} via {{ reply.source }}</td>
+	                </tr>
+	            </tbody>
+	        </table>
+        
+	        <button type="submit" ui-sref="topic" class="btn btn-primary">
+		        <span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;<span> Voltar</span>
+		    </button>
+	    </div>
+    </div>
+</div>

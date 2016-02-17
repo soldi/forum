@@ -1,0 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+body {
+    background: #fafafa;
+    font-family: 'Anonymous Pro', monospace;
+    color: #333;
+}
+
+/* ==========================================================================
+Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
+========================================================================== */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.error {
+    color: white;
+    background-color: red;
+}
+
+.hand {
+    cursor: pointer;
+}
+
+.appreciation {
+    font-size: x-large;
+    color: tomato;
+}

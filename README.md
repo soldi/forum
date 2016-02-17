@@ -14,3 +14,6 @@
   - GET    para     api/topics/
 * <b>Consultar tópico</b>
   - GET    para     api/topics/[id do tópico]
+  
+## Execução
+* mvn jetty:run-war

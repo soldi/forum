@@ -1,11 +1,13 @@
 # Fórum 
 
-## Aplicação - http://localhost:8080/#/topic
+## Aplicação 
+<b>Acesso:</b> http://localhost:8080/#/topic
 * Criar tópico de discussão 
 * Responder a tópico
 * Listar tópicos
 
-## Rest API - http://localhost:8080/api/topics/
+## Rest API 
+<b>Acesso:</b> http://localhost:8080/api/topics/
 * <b>Criar tópico/resposta</b>
   - POST    para    api/topics/
 * <b>Listar tópicos</b>
